@@ -7,17 +7,19 @@
 </head>
 <body>
     <ul>
-        <% allitems.map((item,index)=>{%>
-            <li>Category <%= category.category_id %></li>
-            <li><%= category.category_name %></li>
-            <button> <a href="/category/<%= index %>">Detail</a></button>
+        <% allItems.map((item,index)=>{
+            if(index==0) index=1
+            %>
+            <li>Item <%= item.item_id %></li>
+            <li><%= item.item_name %></li>
+            <button> <a href="/items/<%= index %>">Detail</a></button>
             <hr>
             <%
         })
 
         %>
     </ul>
-    <form action="/new" method="get">
+    <form action="/items/new" method="get">
         <button type="submit">Add Item</button>
     </form>
 </body>
