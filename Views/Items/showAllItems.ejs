@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+</head>
+<body>
+    <ul>
+        <% allitems.map((item,index)=>{%>
+            <li>Category <%= category.category_id %></li>
+            <li><%= category.category_name %></li>
+            <button> <a href="/category/<%= index %>">Detail</a></button>
+            <hr>
+            <%
+        })
+
+        %>
+    </ul>
+    <form action="/new" method="get">
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>

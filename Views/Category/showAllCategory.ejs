@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Categories</title>
+</head>
+<body>
+    <ul>
+        <% allCategories.map((category,index)=>{
+            if(index==0) index=1;%>
+            
+            <li>Category <%= category.category_id %></li>
+            <li><%= category.category_name %></li>
+            <button> <a href="/category/<%= index %>">Detail</a></button>
+            <hr>
+            <%
+        })
+
+        %>
+    </ul>
+    <form action="/category/new" method="get">
+        <button type="submit">Add Category</button>
+    </form>
+</body>
+</html>

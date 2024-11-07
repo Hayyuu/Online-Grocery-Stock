@@ -10,15 +10,22 @@ async function getSingleItem(id) {
   console.log(rows[0]);
   return rows[0];
 }
+
+async function getAllItemsInCategory(categoryID){
+  const { rows } = await pool.query(`SELECT * FROM items inner join category on items.category_id=category.category_id where category.category_id=$1`,[categoryID]);
+  return rows;
+}
 async function getAllCategories() {
   const { rows } = await pool.query("SELECT * FROM category");
   console.log(rows);
   return rows;
 }
-async function getSingleCategory(id) {
-  console.log(`${id}`);
-  const  {rows} = await pool.query("SELECT category_name FROM category WHERE category_id= ($1)",[id]);
-  console.log(rows[0]);
-  return rows[0];
+async function getSingleCategory(categoryID) {
+  const res = await pool.query("Select * from category where category_id=$1",[categoryID]);
+  return res.rows[0];
 }
-getSingleItem(2);
+async function addCategory(req){
+  const res=await pool.query('Insert into category (category_name) values($1)',[req.body.name]);
+}
+
+module.exports={getAllItems,getSingleItem,getAllItemsInCategory,getAllCategories,getSingleCategory,addCategory};

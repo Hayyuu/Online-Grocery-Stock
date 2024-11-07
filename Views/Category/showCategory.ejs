@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= category.category_name %></title>
+</head>
+<body>
+    <ul>
+        <li>Category ID: <%= category.category_id %></li>
+        <li>Category Name: <%= category.category_name %></li>
+        <ul>
+            <% allItems.map((item)=>{%>
+                
+                <p><%= item.item_name%><em style="color:brown"> Price: <%= item.price%>$</em></p>
+            <%
+        })
+        %>
+        
+        </ul>
+</ul>
+</body>
+</html>
