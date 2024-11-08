@@ -1,0 +1,8 @@
+
+<%if (locals.errors) {%>
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <p style="color: red;"><%=error.path%> <%= error.msg %><p>
+      <% }); %>
+    </ul>
+  <% } %>
